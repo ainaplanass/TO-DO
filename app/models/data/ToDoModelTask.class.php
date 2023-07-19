@@ -12,23 +12,22 @@ class Task {
     private int $id;
     private string $name;
     private statusTask $status;
-    private string $start_time;
-    private string $end_time;
-    private string $author;
+    private string $startTime;
+    private string $endTime;
+    private string $user;
 
-    public function __construct(string $name, string $author) {
+    public function __construct(string $name, string $user) {
         $this->id = Task::$id_counter++;
         $this->name = $name;
         $this->status = statusTask::Pending;
-        $this->start_time = date("Y-m-d H:i:s", time());
-        $this->end_time = "";
-        $this->author = $author;
+        $this->startTime = date("Y-m-d H:i:s", time());
+        $this->endTime = "";
+        $this->user = $user;
     }
 }
 //funciones "helper"
 
-// Helper function to read all tasks from JSON file
-function readTasks_json(): array {
+function getTasks_json(): array { //esta funcion devuelve la infoo de data.json convertida en array
 
     $jsonFilePath = 'data/tasks.json';
 
@@ -39,11 +38,3 @@ function readTasks_json(): array {
     return $tasksJson;
 }
 
-function getAllTasks(): array {
-
-    $tasksArray = readTasks_json();
-
-    return $tasksArray;
-}
-
-?>
