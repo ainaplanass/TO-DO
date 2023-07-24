@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de tareas</title>
+</head>
+<body>
+    <h1>Lista de tareas</h1>
+    <ul>
+        <?php foreach ($this->tasks as $task): ?>
+            <li>
+                <strong>Tarea:</strong> <?php echo $task['name']; ?> |
+                <strong>Autor:</strong> <?php echo $task['user']; ?> |
+                <strong>Estado:</strong> <?php echo $task['status']; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <a href="">Volver al menu</a>
+</body>
+</html>

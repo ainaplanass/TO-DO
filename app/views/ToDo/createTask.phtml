@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear nueva tarea</title>
+</head>
+<body>
+    <h1>Crear nueva tarea</h1>
+    <?php if (isset($errorMessage)): ?>
+        <p><?php echo $errorMessage; ?></p>
+    <?php endif; ?>
+    <form method="POST" action="">
+        <label for="name">Nommbre tarea:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="user">Encargado:</label>
+        <input type="text" id="user" name="user" required><br>
+
+        <input type="submit" value="Crear tarea">
+    </form>
+</body>
+<a href="/">Volver al menu</a>
+
+</html>

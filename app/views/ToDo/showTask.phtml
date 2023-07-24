@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalles de la tarea</title>
+</head>
+<body>
+    <h1>Detalles de la tarea</h1>
+    <p><strong>Nombre de la tarea:</strong> <?php echo $this->task['name']; ?></p>
+    <p><strong>Autor de la tarea:</strong> <?php echo $this->task['user']; ?></p>
+    <p><strong>Estado:</strong> <?php echo $this->task['status']; ?></p>
+    <p><strong>Hora de inicio:</strong> <?php echo $this->task['startTime'] ?? 'No especificado'; ?></p>
+    <p><strong>Hora de finalización:</strong> <?php echo $this->task['endTime'] ?? 'No especificado'; ?></p>
+
+    <a href="indice">Volver al menu</a>
+</body>
+</html>

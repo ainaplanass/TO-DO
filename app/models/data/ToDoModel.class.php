@@ -1,8 +1,9 @@
 <?php
 
-class ToDoModel_json implements ToDoModelInterface {
+class ToDoModel implements ToDoModelInterface {
 
-    private $dataFile = './data/data.json';
+    private  $dataFile = 'TO-DO/app/models/data/data.json';
+
 
     public function createTask(string $name, string $user): bool {
 
@@ -21,11 +22,11 @@ class ToDoModel_json implements ToDoModelInterface {
     }
     
 
-    public function getAllTaks(): array {
+    public function getAllTasks(): array {
         return $this->readTasksFromJson();
     }
 
-    public function getSpecificTaks(int $idTask): ?array {
+    public function getSpecificTask(int $idTask): ?array {
 
         $tasks = $this->readTasksFromJson();
         foreach ($tasks as $tak) {
@@ -64,7 +65,7 @@ class ToDoModel_json implements ToDoModelInterface {
         $jsonFile = file_get_contents($this->dataFile);
         $takss = json_decode($jsonFile, true); //torna el data json en arrays
     
-        if (empty($takss)) { //si no hi ha torna que no hi iha res nene
+        if (empty($takss)) { //si no hi ha torna que no hi iha res ne
             return ['No hay tareas disponibles'];
         }
     

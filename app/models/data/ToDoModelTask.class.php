@@ -1,6 +1,5 @@
 <?php
-// Define enum type for task status
-enum statusTask 
+/*enum statusTask 
 {
     case Pending;
     case Ongoing;
@@ -25,7 +24,7 @@ class Task {
         $this->user = $user;
     }
 }
-//funciones "helper"
+
 
 function getTasks_json(): array { //esta funcion devuelve la infoo de data.json convertida en array
 
@@ -37,4 +36,5 @@ function getTasks_json(): array { //esta funcion devuelve la infoo de data.json 
 
     return $tasksJson;
 }
-
+*/
+?>
