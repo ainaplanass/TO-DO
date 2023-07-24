@@ -2,12 +2,12 @@
 
 
 $routes = array(
-    '/' => 'ToDoController#index',
+    '/' => 'ToDo#index',
 
-	'/createTask' => 'ToDo@createTask',
+	'/createTask' => 'ToDo#createTask',
 
-    '/showTask' => 'ToDo@showTask',
+    '/showTask' => 'ToDo#showTask',
 
-	'/showAllTask' => 'ToDo@showAllTasks',
+	'/showAllTask' => 'ToDo#showAllTasks',
 
 );

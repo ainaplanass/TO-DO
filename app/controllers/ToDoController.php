@@ -16,7 +16,8 @@ class ToDoController extends Controller
                 $errorMessage = "No se ha podido crear la tarea: " . $result;
                 $this->view->render('createTask', ['errorMessage' => $errorMessage]);
             } else {
-                header("Location: index");
+                // Redireccionar al índice o a la página que muestre todas las tareas
+                header("Location: /");
                 exit;
             }
         } else {
