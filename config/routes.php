@@ -4,10 +4,10 @@
 $routes = array(
     '/' => 'ToDoController#index',
 
-	'/createTaskAction' => 'ToDoController@createTaskAction',
+	'/createTask' => 'ToDo@createTask',
 
-    '/showTask' => 'ToDoController@showTaskAction',
+    '/showTask' => 'ToDo@showTask',
 
-	'/showAllTask' => 'ToDoController@showAllTasksAction',
+	'/showAllTask' => 'ToDo@showAllTasks',
 
 );

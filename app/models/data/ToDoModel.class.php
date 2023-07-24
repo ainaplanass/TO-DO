@@ -2,7 +2,7 @@
 
 class ToDoModel implements ToDoModelInterface {
 
-    private  $dataFile = 'TO-DO/app/models/data/data.json';
+    private  $dataFile = ROOT_PATH.'/app/models/data/json/data.json';
 
 
     public function createTask(string $name, string $user): bool {
