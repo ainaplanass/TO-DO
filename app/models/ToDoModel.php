@@ -59,6 +59,8 @@ class ToDoModel implements ToDoModelInterface {
         $tasks = $this->readTasksFromJson();
     
         foreach ($tasks as $index => $task) {
+            
+            $task['id'] =  $task['id'] -1;
             if ($task['id'] == $idTask) {
                 unset($tasks[$index]); 
                 return $this->saveTasksToJson($tasks);

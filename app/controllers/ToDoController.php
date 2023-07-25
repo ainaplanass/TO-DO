@@ -68,8 +68,6 @@ class ToDoController extends Controller
             if ($task === null) {
                 throw new Exception("Tarea no encontrada.");
             }
-
-           //$this->view->task = $task;
         } 
     }
     private function setModel(): ToDoModelInterface {
