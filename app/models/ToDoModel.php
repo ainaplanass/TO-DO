@@ -18,7 +18,7 @@ class ToDoModel implements ToDoModelInterface {
             'id'=> $newId,
             'name' => $name,
             'status' => 'Pending',
-            'startTime' => date('Y-m-d'),
+            'startTime' => date('d-m-Y h:i'),
             'endTime' => null,
             'user' => $user
         ];

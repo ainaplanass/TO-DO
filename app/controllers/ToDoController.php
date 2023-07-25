@@ -12,7 +12,7 @@ class ToDoController extends Controller
             $todoModel = $this->setModel();
             $result = $todoModel->createTask($name, $user);
     
-            if (is_string($result)) {
+            if (is_string($result)) { // esot mira si la tarea se ha podid crear corretamente
                 $errorMessage = "No se ha podido crear la tarea: " . $result;
                 $this->view->render('createTask', ['errorMessage' => $errorMessage]);
             } else {
@@ -53,7 +53,7 @@ class ToDoController extends Controller
     }
     public function updateTaskAction()
     {
-       
+       //falta 
     }
 
     public function deleteTaskAction()
