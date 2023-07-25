@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Índice de tareas</title>
+    <title>Menú</title>
 </head>
 <body>
-    <h1>Índice de tareas</h1>
+    <h1>Menú</h1>
 
     <p><a href="createTask">Crear nueva tarea</a></p>
     
     <p><a href="showAllTasks">Ver todas las tareas</a></p>
 
-    <p><a href="showTask">Buscar tarea por ID</a></p>
+    <form action="showTask" method="get">
+        <label for="task_id">Buscar tarea por ID:</label>
+        <input type="text" id="task_id" name="id" required>
+        <input type="submit" value="Buscar">
+    </form>
+    <form action="updateTask" method="get">
+        <label for="task_id">Actualizar tarea por ID:</label>
+        <input type="text" id="task_id" name="id" required>
+        <input type="submit" value="Buscar">
+    </form>
 </body>
 </html>

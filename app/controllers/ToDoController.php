@@ -37,7 +37,7 @@ class ToDoController extends Controller
             }
 
             $this->view->task = $task;
-            $this->view->render('showTask');
+  
         } else {
 
             throw new Exception("ID de tarea no proporcionado.");
@@ -50,9 +50,15 @@ class ToDoController extends Controller
 
      
         $this->view->tasks = $tasks;
-      //  $this->view->render('showAllTasks');
     }
-
+    public function updateTask()
+    {
+      
+    }
+    public function deleteTask()
+    {
+      
+    }
     private function setModel(): ToDoModelInterface {
 
         return new TodoModel();

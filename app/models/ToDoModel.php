@@ -74,8 +74,8 @@ class ToDoModel implements ToDoModelInterface {
         return $takss;
     }
     private function saveTasksToJson(array $tasks): bool {
-        $encodedJson = json_encode($tasks);
-        return file_put_contents($this->dataFile, $encodedJson,JSON_PRETTY_PRINT) !== false;
+        $encodedJson = json_encode($tasks,JSON_PRETTY_PRINT);
+        return file_put_contents($this->dataFile, $encodedJson) !== false;
     }
 }
 
