@@ -51,13 +51,26 @@ class ToDoController extends Controller
      
         $this->view->tasks = $tasks;
     }
-    public function updateTask()
+    public function updateTaskAction()
     {
-      
+       
     }
-    public function deleteTask()
+
+    public function deleteTaskAction()
     {
-      
+        if (isset($_GET['id'])) {
+            $taskId = $_GET['id'];
+    
+            $todoModel = new TodoModel(); 
+
+            $task = $todoModel->deleteTask($taskId);
+    
+            if ($task === null) {
+                throw new Exception("Tarea no encontrada.");
+            }
+
+           //$this->view->task = $task;
+        } 
     }
     private function setModel(): ToDoModelInterface {
 

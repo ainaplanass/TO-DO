@@ -8,8 +8,12 @@ class ToDoModel implements ToDoModelInterface {
     public function createTask(string $name, string $user): bool {
 
         $tasks = $this->readTasksFromJson();
-        $newId = count($tasks)+1;
-
+        $maxId = 0;
+        foreach ($tasks as $task) {
+            $maxId = max($maxId, $task['id']);
+        }
+    
+        $newId = $maxId + 1;
         $newTask = [
             'id'=> $newId,
             'name' => $name,

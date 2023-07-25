@@ -2,6 +2,7 @@
 
 
 $routes = array(
+    
     '/' => 'ToDo#index',
 
 	'/createTask' => 'ToDo#createTask',
@@ -9,6 +10,10 @@ $routes = array(
     '/showTask' => 'ToDo#showTask',
 
 	'/showAllTask' => 'ToDo#showAllTasks',
+
+    '/udpateTask' => 'ToDo#updateTask',
+
+    '/deleteTask' => 'ToDo#deleteTask'
     
 
 );
