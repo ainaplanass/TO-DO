@@ -18,7 +18,7 @@ class ToDoModel implements ToDoModelInterface {
             'id'=> $newId,
             'name' => $name,
             'status' => 'Pending',
-            'startTime' => null,
+            'startTime' => date('Y-m-d'),
             'endTime' => null,
             'user' => $user
         ];
@@ -59,8 +59,7 @@ class ToDoModel implements ToDoModelInterface {
         $tasks = $this->readTasksFromJson();
     
         foreach ($tasks as $index => $task) {
-            
-            $task['id'] =  $task['id'] -1;
+
             if ($task['id'] == $idTask) {
                 unset($tasks[$index]); 
                 return $this->saveTasksToJson($tasks);
