@@ -16,13 +16,10 @@ class ToDoController extends Controller
                 $errorMessage = "No se ha podido crear la tarea: " . $result;
                 $this->view->render('createTask', ['errorMessage' => $errorMessage]);
             } else {
-                // Redireccionar al índice o a la página que muestre todas las tareas
-                header("Location: /");
+                header("Location: showAllTasks");
                 exit;
             }
-        } else {
-            $this->view->render('createTask');
-        }
+        } 
     }
     
     public function showTaskAction()
@@ -51,20 +48,15 @@ class ToDoController extends Controller
         $todoModel = new TodoModel();
         $tasks = $todoModel->getAllTasks();
 
-        if (empty($tasks)) {
-        throw new Exception("No hay tareas disponibles.");
-        }
-
+     
         $this->view->tasks = $tasks;
-        $this->view->render('showAllTasks');
+      //  $this->view->render('showAllTasks');
     }
 
     private function setModel(): ToDoModelInterface {
 
         return new TodoModel();
-
     }
-    
 
 }
 

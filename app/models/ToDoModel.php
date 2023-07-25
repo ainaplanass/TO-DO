@@ -2,21 +2,23 @@
 
 class ToDoModel implements ToDoModelInterface {
 
-    private  $dataFile = ROOT_PATH.'/app/models/data/json/data.json';
+    private  $dataFile = ROOT_PATH.'/app/models/data/data.json';
 
 
     public function createTask(string $name, string $user): bool {
 
         $tasks = $this->readTasksFromJson();
+        $newId = count($tasks)+1;
 
         $newTask = [
+            'id'=> $newId,
             'name' => $name,
             'status' => 'Pending',
             'startTime' => null,
             'endTime' => null,
             'user' => $user
         ];
-        array_push($tasks, $newTask);
+        $tasks[] = $newTask;
     
         return $this->saveTasksToJson($tasks);
     }
@@ -66,14 +68,14 @@ class ToDoModel implements ToDoModelInterface {
         $takss = json_decode($jsonFile, true); //torna el data json en arrays
     
         if (empty($takss)) { //si no hi ha torna que no hi iha res ne
-            return ['No hay tareas disponibles'];
+            return[];
         }
     
         return $takss;
     }
     private function saveTasksToJson(array $tasks): bool {
         $encodedJson = json_encode($tasks);
-        return file_put_contents($this->dataFile, $encodedJson) !== false;
+        return file_put_contents($this->dataFile, $encodedJson,JSON_PRETTY_PRINT) !== false;
     }
 }
 
