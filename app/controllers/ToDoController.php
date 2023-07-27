@@ -52,9 +52,49 @@ class ToDoController extends Controller
         $this->view->tasks = $tasks;
     }
     public function updateTaskAction()
-    {
-       //falta 
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
+        $taskId = $_POST['id'];
+
+        $newData = [];
+
+        if (isset($_POST['name'])) {
+            $newData['name'] = $_POST['name'];
+        }
+
+        if (isset($_POST['status'])) {
+            $status = $_POST['status'];
+
+            // Validate the status field
+            if ($status === 'Terminada' || $status === 'En ejecución' || $status === 'Pendiente') {
+                $newData['status'] = $status;
+
+                if ($status === 'Terminada') {
+                    $newData['endTime'] = date("Y-m-d H:i:s");
+                }
+            } else {
+                throw new Exception("UpdateTask: Estado de tarea no válido.");
+            }
+        }
+
+        if (isset($_POST['author'])) {
+            $newData['author'] = $_POST['author'];
+        }
+
+        $todo = $this->setModel();
+
+        $result = $todo->updateTask($newData, $taskId);
+
+        if (is_string($result)) {
+            throw new Exception("UpdateTask: " . $result);
+        }
+
+        header("Location: showAll");
+        exit;
+    } else {
+        throw new Exception("ID de tarea no proporcionado o método de solicitud incorrecto.");
     }
+}
 
     public function deleteTaskAction()
     {

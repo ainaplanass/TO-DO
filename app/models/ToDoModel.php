@@ -17,7 +17,7 @@ class ToDoModel implements ToDoModelInterface {
         $newTask = [
             'id'=> $newId,
             'name' => $name,
-            'status' => 'Pending',
+            'status' => 'Pendiente',
             'startTime' => date('d-m-Y h:i'),
             'endTime' => null,
             'user' => $user
@@ -43,18 +43,19 @@ class ToDoModel implements ToDoModelInterface {
         return null;
     }
     public function updateTask(array $newData, int $idTask): bool {
-        
         $tasks = $this->readTasksFromJson();
-
+    
         foreach ($tasks as &$task) {
             if ($task['id'] == $idTask) {
-                $task = array_merge($task, $newData); // actualitza els datos si no son iguals
+                foreach ($newData as $index => $value) {
+                    $task[$index] = $value;
+                }
                 return $this->saveTasksToJson($tasks);
             }
         }
         return false;
-
     }
+    
     public function deleteTask(int $idTask): bool {
         $tasks = $this->readTasksFromJson();
     

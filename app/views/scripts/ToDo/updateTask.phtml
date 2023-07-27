@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actualizar tarea</title>
+</head>
+<body>
+    <h1>Actualizar tarea</h1>
+
+    <?php if (isset($task)): ?>
+        <form method="GET" action="updateTask">
+            <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
+            <label for="name">Nombre tarea:</label>
+            <input type="text" id="name" name="name" value="<?php echo $task['name']; ?>" required><br>
+
+            <label for="user">Encargado:</label>
+            <input type="text" id="user" name="user" value="<?php echo $task['user']; ?>" required><br>
+
+            <label for="status">Estado:</label>
+            <select id="status" name="status">
+                <option value="Pendiente" <?php echo $task['status'] === 'Pendiente' ? 'selected' : ''; ?>>Pendiente</option>
+                <option value="En Ejecucion" <?php echo $task['status'] === 'En Ejecucion' ? 'selected' : ''; ?>>En ejecución</option>
+                <option value="Terminada" <?php echo $task['status'] === 'Terminada' ? 'selected' : ''; ?>>Terminada</option>
+            </select><br>
+
+            <input type="submit" value="Actualizar tarea">
+        </form>
+    <?php else: ?>
+        <p>Tarea no encontrada.</p>
+    <?php endif; ?>
+
+    <a href="<?php echo WEB_ROOT ?>">Volver al menu</a>
+</body>
+</html>
+

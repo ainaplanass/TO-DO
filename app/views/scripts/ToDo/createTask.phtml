@@ -5,9 +5,7 @@
 </head>
 <body>
     <h1>Crear nueva tarea</h1>
-    <?php if (isset($errorMessage)): ?>
-        <p><?php echo $errorMessage; ?></p>
-    <?php endif; ?>
+
     <form method="POST" action="createTask">
         <label for="name">Nombre tarea:</label>
         <input type="text" id="name" name="name" required><br>
