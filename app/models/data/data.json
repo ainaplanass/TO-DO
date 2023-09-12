@@ -1,26 +1,27 @@
 {
-    "1": {
-        "id": 2,
-        "name": "dsds",
-        "status": "Pendiente",
-        "startTime": "12-09-2023 09:54",
-        "endTime": null,
-        "user": "mear"
-    },
     "3": {
         "id": 4,
-        "name": "tomar vino",
-        "status": "Pendiente",
+        "name": "ir a comprar",
+        "status": "Terminada",
         "startTime": "12-09-2023 09:54",
-        "endTime": null,
-        "user": "roberto"
+        "endTime": "2023-09-12 13:00:39",
+        "user": "maria",
+        "end_date": "2023-09-12 12:58:29"
     },
     "4": {
         "id": 5,
-        "name": "tomar vino",
+        "name": "4",
         "status": "Pendiente",
         "startTime": "12-09-2023 09:55",
         "endTime": null,
-        "user": "andrea"
+        "user": "4"
+    },
+    "5": {
+        "id": 6,
+        "name": "ir a lmecdao",
+        "status": "Pendiente",
+        "startTime": "12-09-2023 12:35",
+        "endTime": null,
+        "user": "33"
     }
 }

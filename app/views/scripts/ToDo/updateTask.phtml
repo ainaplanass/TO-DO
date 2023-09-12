@@ -1,3 +1,4 @@
+<?php $task = $this->task; $taskId = $this->taskId ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,9 +6,8 @@
 </head>
 <body>
     <h1>Actualizar tarea</h1>
-
     <?php if (isset($task)): ?>
-        <form method="POST" action="updateTask">
+        <form method="POST" action="">
             <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
             <label for="name">Nombre tarea:</label>
             <input type="text" id="name" name="name" value="<?php echo $task['name']; ?>" required><br>
@@ -25,7 +25,7 @@
             <input type="submit" value="Actualizar tarea">
         </form>
     <?php else: ?>
-        <p>Nonop.</p>
+        <p>Tarea no encontrada.</p>
     <?php endif; ?>
 
     <a href="<?php echo WEB_ROOT ?>">Volver al menu</a>

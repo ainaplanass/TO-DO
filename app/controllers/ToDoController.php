@@ -51,31 +51,36 @@ class ToDoController extends Controller
      
         $this->view->tasks = $tasks;
     }
-    public function updateTaskAction()
+   public function updateTaskAction()
 {
-    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-        if (!empty($_POST["name"]) && !empty($_POST["author"]) && isset($_POST["id"])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST["id"])) {
             $taskId = $_POST['id'];
-            $newData['name'] = $_POST['name'];
-            $newData['status'] = $_POST['status'];
-            $newData['author'] = $_POST['author'];
 
+            $newData['status'] = $_POST['status'];
+
+            if ($newData['status'] === 'Terminada') {
+                $newData['endTime'] = date('Y-m-d H:i:s');
+            }
+            else 
+            {
+                $newData['endTime'] = null;
+            }
             $todo = $this->setModel();
+
             $result = $todo->updateTask($newData, $taskId);
 
             if (is_string($result)) {
                 throw new Exception("UpdateTask: " . $result);
             }
 
-            header("Location: showAll");
+            header("Location: showAllTasks");
             exit;
         } else {
-            throw new Exception("UpdateTask: Task Name, Author, and Task ID are required.");
+            throw new Exception("Task ID, Name, and User fields are required.");
         }
     }
-
 }
-
 
     public function deleteTaskAction()
     {
