@@ -60,7 +60,7 @@ class ToDoController extends Controller
             $newData['status'] = $_POST['status'];
 
             if ($newData['status'] === 'Terminada') {
-                $newData['endTime'] = date('Y-m-d H:i:s');
+                $newData['endTime'] = date('d-m-Y h:i');
             }
             else 
             {
