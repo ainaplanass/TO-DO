@@ -12,13 +12,13 @@
         "name": "f",
         "status": "Terminada",
         "startTime": "13-09-2023 11:11",
-        "endTime": null,
-        "user": "ttt"
+        "endTime": "14-09-2023 10:02",
+        "user": "padre"
     },
     "3": {
         "id": 4,
         "name": "5",
-        "status": "Pendiente",
+        "status": "Terminada",
         "startTime": "13-09-2023 11:45",
         "endTime": null,
         "user": "jjhgdss"

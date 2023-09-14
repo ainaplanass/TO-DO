@@ -71,6 +71,9 @@ class ToDoController extends Controller
         $newData['name'] = $_POST['name'];
         $newData['status'] = $_POST['status'];
         $newData['user'] = $_POST['user'];
+        if ($newData['status'] === 'Terminada') {
+            $newData['endTime'] = date('d-m-Y h:i');
+        }
 
         $todoModel = new TodoModel();
         $result = $todoModel->updateTask($newData, $taskId);  // updateTask(array $newData, int $idTask): bool
@@ -78,7 +81,7 @@ class ToDoController extends Controller
         if (is_string($result)) {
             throw new Exception("UpdateTask: " . $result);
         }
-
+     
         header("Location: showAllTasks");
         exit;
 
