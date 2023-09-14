@@ -2,21 +2,24 @@
 <html>
 <head>
     <title>Lista de tareas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Lista de tareas</h1>
-    <ul>
-        <?php foreach ($this->tasks as $task): ?>
-            <li>     
-                <strong>ID:</strong> <?php echo $task['id']; ?> |
-                <strong>Tarea:</strong> <?php echo $task['name']; ?> |
-                <strong>Autor:</strong> <?php echo $task['user']; ?> |
-                <strong>Estado:</strong> <?php echo $task['status']; ?>
-                <strong>Dia inicio:</strong> <?php echo $task['startTime']; ?> |
-                <strong>Dia final:</strong> <?php echo $task['endTime']; ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
-    <a href="<?php echo WEB_ROOT ?>">Volver al menu</a>
+<body class="bg-white flex justify-center items-center h-screen">
+    <div class="container mx-auto p-4 bg-pink-200 rounded shadow-lg">
+        <h1 class="text-4xl font-bold mb-11 text-center">Lista de tareas</h1>
+        <ul>
+            <?php foreach ($this->tasks as $task): ?>
+                <li class="mb-2">
+                    <strong>ID:</strong> <?php echo $task['id']; ?> |
+                    <strong>Tarea:</strong> <?php echo $task['name']; ?> |
+                    <strong>Autor:</strong> <?php echo $task['user']; ?> |
+                    <strong>Estado:</strong> <?php echo $task['status']; ?> |
+                    <strong>Día inicio:</strong> <?php echo $task['startTime']; ?> |
+                    <strong>Día final:</strong> <?php echo $task['endTime']; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <a class="bg-pink-700 hover:bg-pink-700 text-white font-bold px-4 py-2 rounded mt-4 inline-block" href="<?php echo WEB_ROOT ?>">Volver al menú</a>
+    </div>
 </body>
 </html>
