@@ -3,27 +3,35 @@
 <html>
 <head>
     <title>Actualizar tarea</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <h1>Actualizar tarea</h1>
-        <form method="POST" action="updateTask">
-            <input type="hidden" name="id" value="<?php echo $this->task['id']; ?>">
-            <label for="name">Nombre tarea:</label>
-            <input type="text" id="name" name="name" value="<?php echo $this->task['name']; ?>" required><br>
-
-            <label for="user">Encargado:</label>
-            <input type="text" id="user" name="user" value="<?php echo $this->task['user']; ?>" required><br>
-
-            <label for="status">Estado:</label>
-            <select id="status" name="status">
-                <option value="Pendiente" <?php echo $this->task['status'] === 'Pendiente' ? 'selected' : ''; ?>>Pendiente</option>
-                <option value="En Ejecucion" <?php echo $this->task['status'] === 'En Ejecucion' ? 'selected' : ''; ?>>En ejecución</option>
-                <option value="Terminada" <?php echo $this->task['status'] === 'Terminada' ? 'selected' : ''; ?>>Terminada</option>
-            </select><br>
-
-            <input type="submit" name="update" value="Actualizar tarea">
-        </form>
-    <a href="<?php echo WEB_ROOT ?>">Volver al menu</a>
+    <div class="container w-80 sm:w-auto mx-auto mt-10 bg-pink-200 p-10 rounded shadow-2xl">
+        <h1 class="text-3xl font-bold text-center m-10">Actualizar tarea</h1>
+        <div class="m-10 text-center">    
+            <form method="POST" action="updateTask" class="my-5">
+                <input type="hidden" name="id" value="<?php echo $this->task['id']; ?>">
+                <div class="mb-4">
+                    <label for="name" class="border rounded">Nombre tarea:</label>
+                    <input  type="text" id="name" name="name" value="<?php echo $this->task['name']; ?>" required><br>
+                </div>                
+                <div class="mb-4">
+                    <label for="user" class="border rounded">Encargado:</label>
+                    <input  type="text" id="user" name="user" value="<?php echo $this->task['user']; ?>" required><br>
+                </div>
+                <div class="mb-4">
+                    <label class="border rounded" for="status">Estado:</label>
+                    <select id="status" name="status">
+                        <option value="Pendiente" <?php echo $this->task['status'] === 'Pendiente' ? 'selected' : ''; ?>>Pendiente</option>
+                        <option value="En Ejecucion" <?php echo $this->task['status'] === 'En Ejecucion' ? 'selected' : ''; ?>>En ejecución</option>
+                        <option value="Terminada" <?php echo $this->task['status'] === 'Terminada' ? 'selected' : ''; ?>>Terminada</option>
+                    </select><br>
+                </div>              
+                <input class="bg-pink-700 hover:bg-pink-900 text-white font-bold px-3 py-1 rounded" type="submit" name="update" value="Actualizar tarea">
+            </form>
+            <a class="bg-pink-700 hover:bg-pink-900 text-white font-bold px-3 py-1 rounded" href="<?php echo WEB_ROOT ?>">Volver al menu</a>
+        </div>
+    </div>
 </body>
 </html>
 
