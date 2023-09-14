@@ -53,7 +53,45 @@ class ToDoController extends Controller
     }
     public function updateTaskAction()
 {
-    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    if (isset($_GET['id'])) {
+        $taskId = $_GET['id'];
+
+        $todoModel = new TodoModel();
+        $task = $todoModel->getSpecificTask($taskId);    // getSpecificTask(): ?array
+
+        if ($task === null) {
+            throw new Exception("Tarea no encontrada.");
+        }
+
+        $this->view->task = $task;
+    }
+
+    if (isset($_POST['update'])) {
+        $taskId = $_POST['id'];
+        $newData['name'] = $_POST['name'];
+        $newData['status'] = $_POST['status'];
+        $newData['user'] = $_POST['user'];
+
+        $todoModel = new TodoModel();
+        $result = $todoModel->updateTask($newData, $taskId);  // updateTask(array $newData, int $idTask): bool
+
+        if (is_string($result)) {
+            throw new Exception("UpdateTask: " . $result);
+        }
+
+        header("Location: showAllTasks");
+        exit;
+
+
+       
+    /*
+        $_SESSION['message'] = 'Task Updated Successfully';
+        $_SESSION['message_type'] = 'warning';
+        header("Location: index.php");  */
+    }
+    
+    /*
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($_POST["name"]) && !empty($_POST["author"]) && isset($_POST["id"])) {
             $taskId = $_POST['id'];
             $newData['name'] = $_POST['name'];
@@ -72,10 +110,9 @@ class ToDoController extends Controller
         } else {
             throw new Exception("UpdateTask: Task Name, Author, and Task ID are required.");
         }
-    }
+    } */
 
 }
-
 
     public function deleteTaskAction()
     {
@@ -86,11 +123,12 @@ class ToDoController extends Controller
 
             $task = $todoModel->deleteTask($taskId);
     
-            if ($task === null) {
+            if ($task === false) {   // deleteTask() devuelve boolean, por ello no entraba el mensaje de no encontrada
                 throw new Exception("Tarea no encontrada.");
             }
         } 
     }
+
     private function setModel(): ToDoModelInterface {
 
         return new TodoModel();

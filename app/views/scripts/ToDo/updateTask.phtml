@@ -5,29 +5,23 @@
 </head>
 <body>
     <h1>Actualizar tarea</h1>
-
-    <?php if (isset($task)): ?>
         <form method="POST" action="updateTask">
-            <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
+            <input type="hidden" name="id" value="<?php echo $this->task['id']; ?>">
             <label for="name">Nombre tarea:</label>
-            <input type="text" id="name" name="name" value="<?php echo $task['name']; ?>" required><br>
+            <input type="text" id="name" name="name" value="<?php echo $this->task['name']; ?>" required><br>
 
             <label for="user">Encargado:</label>
-            <input type="text" id="user" name="user" value="<?php echo $task['user']; ?>" required><br>
+            <input type="text" id="user" name="user" value="<?php echo $this->task['user']; ?>" required><br>
 
             <label for="status">Estado:</label>
             <select id="status" name="status">
-                <option value="Pendiente" <?php echo $task['status'] === 'Pendiente' ? 'selected' : ''; ?>>Pendiente</option>
-                <option value="En Ejecucion" <?php echo $task['status'] === 'En Ejecucion' ? 'selected' : ''; ?>>En ejecución</option>
-                <option value="Terminada" <?php echo $task['status'] === 'Terminada' ? 'selected' : ''; ?>>Terminada</option>
+                <option value="Pendiente" <?php echo $this->task['status'] === 'Pendiente' ? 'selected' : ''; ?>>Pendiente</option>
+                <option value="En Ejecucion" <?php echo $this->task['status'] === 'En Ejecucion' ? 'selected' : ''; ?>>En ejecución</option>
+                <option value="Terminada" <?php echo $this->task['status'] === 'Terminada' ? 'selected' : ''; ?>>Terminada</option>
             </select><br>
 
-            <input type="submit" value="Actualizar tarea">
+            <input type="submit" name="update" value="Actualizar tarea">
         </form>
-    <?php else: ?>
-        <p>Nonop.</p>
-    <?php endif; ?>
-
     <a href="<?php echo WEB_ROOT ?>">Volver al menu</a>
 </body>
 </html>
