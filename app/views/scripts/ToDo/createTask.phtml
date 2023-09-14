@@ -6,7 +6,7 @@
 </head>
 <body class="bg-white-200 flex justify-center items-center h-screen">
     <div class="container w-80 sm:w-auto bg-pink-200 p-10 rounded shadow-2xl text-center">
-        <h1 class="text-4xl font-bold mb-4">Crear nueva tarea</h1>
+<img src="<?php echo WEB_ROOT . "/images/crearTarea.png" ?>" class="mx-auto mt-0 w-30 h-36" />
 
         <form method="POST" action="createTask">
             <label for="name" class="block text-gray-700 font-semibold mb-2">Nombre tarea:</label>
@@ -18,7 +18,7 @@
             <input class="bg-pink-700 hover:bg-pink-700 text-white font-bold px-4 py-2 rounded cursor-pointer" type="submit" value="Crear tarea">
         </form>
 
-        <a class="bg-pink-700 hover:bg-pink-700 text-white font-bold px-4 py-2 rounded mt-4 inline-block" href="<?php echo WEB_ROOT; ?>">Volver al menú</a>
+        <a class="bg-pink-700 hover:bg-pink-700 text-white font-bold px-4 py-2 rounded mt-9 inline-block float-right" href="<?php echo WEB_ROOT; ?>">Volver al menú</a>
     </div>
 </body>
 </html>

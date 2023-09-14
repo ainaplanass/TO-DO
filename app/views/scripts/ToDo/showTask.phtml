@@ -5,16 +5,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white-200 flex justify-center items-center h-screen">
-    <div class="container mx-auto p-4 bg-pink-200 rounded shadow-lg text-center">
-        <h1 class="text-4xl font-bold mb-4">Detalles de la tarea</h1>
-        
-        <p><strong>Nombre de la tarea:</strong> <?php echo $this->task['name']; ?></p>
-        <p><strong>Autor de la tarea:</strong> <?php echo $this->task['user']; ?></p>
-        <p><strong>Estado:</strong> <?php echo $this->task['status']; ?></p>
-        <p><strong>Hora de inicio:</strong> <?php echo $this->task['startTime'] ?? 'No especificado'; ?></p>
-        <p><strong>Hora de finalización:</strong> <?php echo $this->task['endTime'] ?? 'No especificado'; ?></p>
+    <div class="container w-80 sm:w-auto bg-pink-200 p-10 rounded shadow-2xl text-center relative">
+        <img src="<?php echo WEB_ROOT . "/images/search.png" ?>" class="mx-auto mt-0 w-30 h-36" />
+        <div class="m-7">
 
-        <a class="bg-pink-700 hover:bg-bg-pink-700 text-white font-bold px-4 py-2 rounded mt-4 inline-block" href="<?php echo WEB_ROOT; ?>">Volver al menú</a>
+    <div class="flex justify-between items-center">
+        <div class="text-left">
+            <p><strong>Nombre de la tarea:</strong> <?php echo $this->task['name']; ?></p>
+            <p><strong>Autor de la tarea:</strong> <?php echo $this->task['user']; ?></p>
+            <p><strong>Estado:</strong> <?php echo $this->task['status']; ?></p>
+            <p><strong>Hora de inicio:</strong> <?php echo $this->task['startTime'] ?? 'No especificado'; ?></p>
+            <p><strong>Hora de finalización:</strong> <?php echo $this->task['endTime'] ?? 'No especificado'; ?></p>
+        </div>
+        
     </div>
+
+    <a class="bg-pink-700 hover:bg-pink-700 text-white font-bold px-4 py-2 rounded mt-4 inline-block float-right" href="<?php echo WEB_ROOT; ?>">Volver al menú</a>
+</div>
 </body>
 </html>

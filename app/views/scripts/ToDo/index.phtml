@@ -5,28 +5,28 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-<div class="container w-80 sm:w-auto mx-auto mt-10 bg-pink-200 p-10 rounded shadow-2xl">
-<img src="<?php echo WEB_ROOT . "/images/20066255.png" ?>" class="absolute top-10 left-10 w-30 h-30" />
-        <h1 class="text-3xl font-bold text-center">ToDo Application</h1>
-        <h1 class="text-3xl font-bold text-center m-10">Menú</h1>
+<div class="container w-30 sm:w-auto mx-auto mt-20 bg-pink-200 p-8 rounded shadow-2xl relative text-center">
+<img src="<?php echo WEB_ROOT . "/images/logo.png" ?>" class="mx-auto mt-2 w-30 h-36" />
+
         <div class="flex justify-center">
-            <p class="my-5">
+            <p class="my-8">
                 <a class="bg-pink-700 hover:bg-pink-700 text-white font-bold px-3 py-1 rounded m-5 text-center" href="createTask">Crear nueva tarea</a>
             </p>
-            <p class="my-5">
+            <p class="my-8">
                 <a class="bg-pink-700 hover:bg-pink-700 text-white font-bold px-3 py-1 rounded m-5 text-center" href="showAllTasks">Ver todas las tareas</a>
             </p>
         </div>
-        <div class="m-10">
+        <div class="flex justify-center">
+        <div class="m-7">
             <form action="showTask" method="get" class="my-5">
                 <label for="task_id">Buscar tarea por ID:</label>
                 <input class="border rounded" type="text" id="task_id" name="id" required>
-                <input class="bg-pink-700 hover:bg-pink-700 text-white font-bold px-3 py-1 rounded"type="submit" value="Buscar">
+                <input class="bg-pink-700 hover:bg-pink-700 text-white font-bold px-3 py-1 rounded" type="submit" value="Buscar">
             </form>
             <form action="updateTask" method="get" class="my-5">
                 <label for="task_id">Actualizar tarea por ID:</label>
                 <input class="border rounded" type="text" id="task_id" name="id" required>
-                <input class="bg-pink-700 hover:bg-pink-700 text-white font-bold px-3 py-1 rounded"type="submit" value="Actualitzar">
+                <input class="bg-pink-700 hover:bg-pink-700 text-white font-bold px-3 py-1 rounded" type="submit" value="Actualitzar">
             </form>
             <form action="deleteTask" method="get" class="my-5">
                 <label for="task_id">Eliminar tarea por ID:</label>
