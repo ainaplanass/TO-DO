@@ -22,11 +22,18 @@
                 <input class="border rounded" type="text" id="task_id" name="id" required>
                 <input class="bg-blue-400 hover:bg-blue-700 text-white font-bold px-3 py-1 rounded"type="submit" value="Buscar">
             </form>
-            <form action="updateTask" method="get" class="my-5">
-                <label for="task_id">Actualizar tarea por ID:</label>
-                <input class="border rounded" type="text" id="task_id" name="id" required>
-                <input class="bg-blue-400 hover:bg-blue-700 text-white font-bold px-3 py-1 rounded"type="submit" value="Actualitzar">
+            <form action="updateTask" method="post" class="my-5">
+                <label for="id">ID de la tarea:</label>
+                <input class="border rounded" type="text" id="id" name="id" required>
+                <label for="status">Estado:</label>
+                <select id="status" name="status">
+                <option value="Pendiente" <?php echo ['status'] === 'Pendiente' ? 'selected' : ''; ?>>Pendiente</option>
+                <option value="En Ejecucion" <?php echo['status'] === 'En Ejecucion' ? 'selected' : ''; ?>>En ejecución</option>
+                <option value="Terminada" <?php echo ['status'] === 'Terminada' ? 'selected' : ''; ?>>Terminada</option>
+            </select><br>
+                <input class="bg-blue-400 hover:bg-blue-700 text-white font-bold px-3 py-1 rounded" type="submit" value="Actualizar">
             </form>
+
             <form action="deleteTask" method="get" class="my-5">
                 <label for="task_id">Eliminar tarea por ID:</label>
                 <input class="border rounded" type="text" id="task_id" name="id" required>
